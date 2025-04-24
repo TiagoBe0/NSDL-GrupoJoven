@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taller De Las Lamparas</title>
+  <title>Grupo de Jóvenes - Parroquia Nuestra Señora del Líbano</title>
   <style>
     /* Reseteo y box-sizing */
     *, *::before, *::after {
@@ -11,179 +11,220 @@
       margin: 0;
       padding: 0;
     }
-
     body {
-      font-family: sans-serif;
-      background-color: #111;
+      font-family: Arial, sans-serif;
+      background-color: #FDEFF9; /* Pastel suave */
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #800000;
       color: #fff;
-      overflow: hidden;
+      padding: 20px 0;
+      text-align: center;
     }
-
-    .carousel {
+    header h1 {
+      margin-bottom: 5px;
+      font-size: 2rem;
+    }
+    header h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.3s;
+    }
+    nav a:hover {
+      opacity: 0.8;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: #800000;
+    }
+    /* Talleres */
+    .taller-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .taller-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 280px;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .taller-card:hover {
+      transform: translateY(-5px);
+    }
+    .taller-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .taller-card h3 {
+      margin: 15px;
+      font-size: 1.2rem;
+    }
+    .taller-card p {
+      margin: 0 15px 15px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    /* Galería de fotos */
+    .gallery {
       position: relative;
-      width: 100vw;
-      height: 100vh;
+      max-width: 800px;
+      margin: 0 auto;
       overflow: hidden;
+      background-color: transparent;
     }
-
-    /* Inputs invisibles para controlar las slides */
-    .carousel input {
-      display: none;
-    }
-
-    .slides {
+    .gallery input { display: none; }
+    .gallery .slides {
       display: flex;
-      width: calc(100vw * 19); /* 19 imágenes */
-      height: 100%;
-      transition: transform 0.6s ease;
+      transition: transform 0.5s ease;
     }
-
-    .slide {
-      flex: 0 0 100vw;
-      height: 100vh;
+    .gallery .slide {
+      flex: 0 0 100%;
+      text-align: center;
     }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .gallery .slide img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 8px;
     }
-
-    /* Posicionar cada slide según el input marcado */
-    #slide1:checked ~ .slides { transform: translateX(0); }
-    #slide2:checked ~ .slides { transform: translateX(-100vw); }
-    #slide3:checked ~ .slides { transform: translateX(-200vw); }
-    #slide4:checked ~ .slides { transform: translateX(-300vw); }
-    #slide5:checked ~ .slides { transform: translateX(-400vw); }
-    #slide6:checked ~ .slides { transform: translateX(-500vw); }
-    #slide7:checked ~ .slides { transform: translateX(-600vw); }
-    #slide8:checked ~ .slides { transform: translateX(-700vw); }
-    #slide9:checked ~ .slides { transform: translateX(-800vw); }
-    #slide10:checked ~ .slides { transform: translateX(-900vw); }
-    #slide11:checked ~ .slides { transform: translateX(-1000vw); }
-    #slide12:checked ~ .slides { transform: translateX(-1100vw); }
-    #slide13:checked ~ .slides { transform: translateX(-1200vw); }
-    #slide14:checked ~ .slides { transform: translateX(-1300vw); }
-    #slide15:checked ~ .slides { transform: translateX(-1400vw); }
-    #slide16:checked ~ .slides { transform: translateX(-1500vw); }
-    #slide17:checked ~ .slides { transform: translateX(-1600vw); }
-    #slide18:checked ~ .slides { transform: translateX(-1700vw); }
-    #slide19:checked ~ .slides { transform: translateX(-1800vw); }
-
-    /* Miniaturas / controles */
-    .thumbnails {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 0 10px;
+    /* controles */
+    .gallery .nav-dots {
+      text-align: center;
+      margin-top: 10px;
     }
-
-    .thumbnails label {
+    .gallery .nav-dots label {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
       cursor: pointer;
-      flex: 0 0 auto;
-      width: 60px;
-      height: 40px;
-      overflow: hidden;
-      border: 2px solid transparent;
-      transition: border-color 0.3s;
+      transition: background-color 0.3s;
     }
-
-    .thumbnails label img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    #gslide1:checked ~ .slides { transform: translateX(0); }
+    #gslide2:checked ~ .slides { transform: translateX(-100%); }
+    #gslide3:checked ~ .slides { transform: translateX(-200%); }
+    #gslide4:checked ~ .slides { transform: translateX(-300%); }
+    #gslide5:checked ~ .slides { transform: translateX(-400%); }
+    #gslide1:checked ~ .nav-dots label[for="gslide1"],
+    #gslide2:checked ~ .nav-dots label[for="gslide2"],
+    #gslide3:checked ~ .nav-dots label[for="gslide3"],
+    #gslide4:checked ~ .nav-dots label[for="gslide4"],
+    #gslide5:checked ~ .nav-dots label[for="gslide5"] {
+      background-color: #800000;
     }
-
-    /* Resaltar miniatura activa */
-    #slide1:checked ~ .thumbnails label[for="slide1"] { border-color: #fff; }
-    #slide2:checked ~ .thumbnails label[for="slide2"] { border-color: #fff; }
-    #slide3:checked ~ .thumbnails label[for="slide3"] { border-color: #fff; }
-    #slide4:checked ~ .thumbnails label[for="slide4"] { border-color: #fff; }
-    #slide5:checked ~ .thumbnails label[for="slide5"] { border-color: #fff; }
-    #slide6:checked ~ .thumbnails label[for="slide6"] { border-color: #fff; }
-    #slide7:checked ~ .thumbnails label[for="slide7"] { border-color: #fff; }
-    #slide8:checked ~ .thumbnails label[for="slide8"] { border-color: #fff; }
-    #slide9:checked ~ .thumbnails label[for="slide9"] { border-color: #fff; }
-    #slide10:checked ~ .thumbnails label[for="slide10"] { border-color: #fff; }
-    #slide11:checked ~ .thumbnails label[for="slide11"] { border-color: #fff; }
-    #slide12:checked ~ .thumbnails label[for="slide12"] { border-color: #fff; }
-    #slide13:checked ~ .thumbnails label[for="slide13"] { border-color: #fff; }
-    #slide14:checked ~ .thumbnails label[for="slide14"] { border-color: #fff; }
-    #slide15:checked ~ .thumbnails label[for="slide15"] { border-color: #fff; }
-    #slide16:checked ~ .thumbnails label[for="slide16"] { border-color: #fff; }
-    #slide17:checked ~ .thumbnails label[for="slide17"] { border-color: #fff; }
-    #slide18:checked ~ .thumbnails label[for="slide18"] { border-color: #fff; }
-    #slide19:checked ~ .thumbnails label[for="slide19"] { border-color: #fff; }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #eaeaea;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
 
-  <div class="carousel">
-    <!-- Radios para controlar slides -->
-    <input type="radio" name="slider" id="slide1" checked>
-    <input type="radio" name="slider" id="slide2">
-    <input type="radio" name="slider" id="slide3">
-    <input type="radio" name="slider" id="slide4">
-    <input type="radio" name="slider" id="slide5">
-    <input type="radio" name="slider" id="slide6">
-    <input type="radio" name="slider" id="slide7">
-    <input type="radio" name="slider" id="slide8">
-    <input type="radio" name="slider" id="slide11">
-    <input type="radio" name="slider" id="slide12">
-    <input type="radio" name="slider" id="slide13">
-    <input type="radio" name="slider" id="slide14">
-    <input type="radio" name="slider" id="slide15">
-    <input type="radio" name="slider" id="slide16">
-    <input type="radio" name="slider" id="slide17">
-    <input type="radio" name="slider" id="slide18">
-    <input type="radio" name="slider" id="slide19">
+  <header>
+    <h1>Grupo de Jóvenes</h1>
+    <h2>Parroquia Nuestra Señora del Líbano</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#talleres">Talleres</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Contenedor de slides -->
-    <div class="slides">
-      <div class="slide"><img src="1.png" alt="Imagen 1"></div>
-      <div class="slide"><img src="2.png" alt="Imagen 2"></div>
-      <div class="slide"><img src="3.png" alt="Imagen 3"></div>
-      <div class="slide"><img src="4.png" alt="Imagen 4"></div>
-      <div class="slide"><img src="5.png" alt="Imagen 5"></div>
-      <div class="slide"><img src="6.png" alt="Imagen 6"></div>
-      <div class="slide"><img src="7.png" alt="Imagen 7"></div>
-      <div class="slide"><img src="8.png" alt="Imagen 8"></div>
-      <div class="slide"><img src="11.png" alt="Imagen 11"></div>
-      <div class="slide"><img src="12.png" alt="Imagen 12"></div>
-      <div class="slide"><img src="13.png" alt="Imagen 13"></div>
-      <div class="slide"><img src="14.png" alt="Imagen 14"></div>
-      <div class="slide"><img src="15.png" alt="Imagen 15"></div>
-      <div class="slide"><img src="16.png" alt="Imagen 16"></div>
-      <div class="slide"><img src="17.png" alt="Imagen 17"></div>
-      <div class="slide"><img src="18.png" alt="Imagen 18"></div>
-      <div class="slide"><img src="19.png" alt="Imagen 19"></div>
+  <section id="talleres">
+    <h2>Nuestros Talleres</h2>
+    <div class="taller-list">
+      <a href="taller_lamparas.html" class="taller-card">
+        <img src="img/taller-reciente.jpg" alt="Taller De Las Lamparas">
+        <h3>Taller De Las Lamparas</h3>
+        <p>Reflexiona acerca de dónde poner el foco en tu vida.</p>
+      </a>
     </div>
+  </section>
 
-    <!-- Miniaturas para selección -->
-    <div class="thumbnails">
-      <label for="slide1"><img src="1.png" alt="Miniatura 1"></label>
-      <label for="slide2"><img src="2.png" alt="Miniatura 2"></label>
-      <label for="slide3"><img src="3.png" alt="Miniatura 3"></label>
-      <label for="slide4"><img src="4.png" alt="Miniatura 4"></label>
-      <label for="slide5"><img src="5.png" alt="Miniatura 5"></label>
-      <label for="slide6"><img src="6.png" alt="Miniatura 6"></label>
-      <label for="slide7"><img src="7.png" alt="Miniatura 7"></label>
-      <label for="slide8"><img src="8.png" alt="Miniatura 8"></label>
-      <label for="slide11"><img src="11.png" alt="Miniatura 11"></label>
-      <label for="slide12"><img src="12.png" alt="Miniatura 12"></label>
-      <label for="slide13"><img src="13.png" alt="Miniatura 13"></label>
-      <label for="slide14"><img src="14.png" alt="Miniatura 14"></label>
-      <label for="slide15"><img src="15.png" alt="Miniatura 15"></label>
-      <label for="slide16"><img src="16.png" alt="Miniatura 16"></label>
-      <label for="slide17"><img src="17.png" alt="Miniatura 17"></label>
-      <label for="slide18"><img src="18.png" alt="Miniatura 18"></label>
-      <label for="slide19"><img src="19.png" alt="Miniatura 19"></label>
+    <section id="anuncios">
+    <h2>Anuncios</h2>
+    <div class="anuncios-list">
+      <div class="anuncio-card">
+        <h3>Anuncio Importante</h3>
+        <p>¡No te pierdas nuestro próximo retiro espiritual este fin de semana!</p>
+      </div>
+      <div class="anuncio-card">
+        <h3>Reunión Semanal</h3>
+        <p>Nos vemos el miércoles a las 19:00 en el salón parroquial.</p>
+      </div>
+      <!-- Agrega más anuncios aquí -->
     </div>
-  </div>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería del Grupo</h2>
+    <div class="gallery">
+      <!-- radios -->
+      <input type="radio" id="gslide1" name="gallery" checked>
+      <input type="radio" id="gslide2" name="gallery">
+      <input type="radio" id="gslide3" name="gallery">
+      <input type="radio" id="gslide4" name="gallery">
+      <input type="radio" id="gslide5" name="gallery">
+      <!-- slides -->
+      <div class="slides">
+        <div class="slide"><img src="img_index/55.jpeg" alt="Foto 1"></div>
+        <div class="slide"><img src="img_index/11.jpeg" alt="Foto 2"></div>
+        <div class="slide"><img src="img_index/22.jpeg" alt="Foto 3"></div>
+        <div class="slide"><img src="img_index/33.jpeg" alt="Foto 4"></div>
+        <div class="slide"><img src="img_index/44.jpeg" alt="Foto 5"></div>
+      </div>
+      <!-- dots -->
+      <div class="nav-dots">
+        <label for="gslide1"></label>
+        <label for="gslide2"></label>
+        <label for="gslide3"></label>
+        <label for="gslide4"></label>
+        <label for="gslide5"></label>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Parroquia Nuestra Señora del Líbano. Todos los derechos reservados.</p>
+  </footer>
 
 </body>
 </html>
