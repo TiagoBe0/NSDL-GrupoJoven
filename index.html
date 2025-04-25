@@ -12,11 +12,11 @@
       padding: 0;
     }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #FDEFF9; /* Pastel suave */
-      color: #333;
-      line-height: 1.6;
-    }
+  background-image: url('img_index/back.png');
+  background-repeat: repeat;
+  background-size: auto; /* O ajusta al tamaño que prefieras */
+}
+
     header {
       background-color: #800000;
       color: #fff;
@@ -105,6 +105,23 @@
       display: flex;
       transition: transform 0.5s ease;
     }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 600;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 70px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
     .gallery .slide {
       flex: 0 0 100%;
       text-align: center;
@@ -163,7 +180,6 @@
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#talleres">Talleres</a></li>
         <li><a href="#galeria">Galería</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -221,7 +237,11 @@
       </div>
     </div>
   </section>
-
+  <a href="https://wa.me/+542634542090 target="_blank" class="whatsapp-float">
+    
+  
+    <img src="img_index/whatsapp-color.svg" alt="">
+  </a>
   <footer>
     <p>&copy; 2025 Parroquia Nuestra Señora del Líbano. Todos los derechos reservados.</p>
   </footer>
