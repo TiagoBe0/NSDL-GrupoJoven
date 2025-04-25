@@ -11,169 +11,339 @@
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: sans-serif;
       background-color: #111;
       color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      overflow: hidden;
     }
+
     .carousel {
       position: relative;
-      width: 80vw;       /* Ajuste de ancho */
-      height: 60vh;      /* Ajuste de alto */
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
-      background-color: #000;
-      border-radius: 8px;
     }
-    .carousel input { display: none; }
+
+    /* Inputs invisibles para controlar las slides */
+    .carousel input {
+      display: none;
+    }
+
     .slides {
       display: flex;
+      width: calc(100vw * 19); /* 19 imágenes */
+      height: 100%;
       transition: transform 0.6s ease;
-      width: calc(80vw * 19); /* 19 slides de 80vw */
     }
+
     .slide {
-      flex: 0 0 80vw;  /* cada slide ocupa 80vw */
-      height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      flex: 0 0 100vw;
+      height: 100vh;
     }
+
     .slide img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 4px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    /* Navegación por radios */
+
+    /* Posicionar cada slide según el input marcado */
     #slide1:checked ~ .slides { transform: translateX(0); }
-    #slide2:checked ~ .slides { transform: translateX(-80vw); }
-    #slide3:checked ~ .slides { transform: translateX(-160vw); }
-    #slide4:checked ~ .slides { transform: translateX(-240vw); }
-    #slide5:checked ~ .slides { transform: translateX(-320vw); }
-    #slide6:checked ~ .slides { transform: translateX(-400vw); }
-    #slide7:checked ~ .slides { transform: translateX(-480vw); }
-    #slide8:checked ~ .slides { transform: translateX(-560vw); }
-    #slide11:checked ~ .slides { transform: translateX(-800vw); }
-    #slide12:checked ~ .slides { transform: translateX(-880vw); }
-    #slide13:checked ~ .slides { transform: translateX(-960vw); }
-    #slide14:checked ~ .slides { transform: translateX(-1040vw); }
-    #slide15:checked ~ .slides { transform: translateX(-1120vw); }
-    #slide16:checked ~ .slides { transform: translateX(-1200vw); }
-    #slide17:checked ~ .slides { transform: translateX(-1280vw); }
-    #slide18:checked ~ .slides { transform: translateX(-1360vw); }
-    #slide19:checked ~ .slides { transform: translateX(-1440vw); }
-    /* Miniaturas */
+    #slide2:checked ~ .slides { transform: translateX(-100vw); }
+    #slide3:checked ~ .slides { transform: translateX(-200vw); }
+    #slide4:checked ~ .slides { transform: translateX(-300vw); }
+    #slide5:checked ~ .slides { transform: translateX(-400vw); }
+    #slide6:checked ~ .slides { transform: translateX(-500vw); }
+    #slide7:checked ~ .slides { transform: translateX(-600vw); }
+    #slide8:checked ~ .slides { transform: translateX(-700vw); }
+    #slide9:checked ~ .slides { transform: translateX(-1000vw); }
+    #slide10:checked ~ .slides { transform: translateX(-1100vw); }
+    #slide11:checked ~ .slides { transform: translateX(-1200vw); }
+    #slide12:checked ~ .slides { transform: translateX(-1300vw); }
+    #slide13:checked ~ .slides { transform: translateX(-1400vw); }
+    #slide14:checked ~ .slides { transform: translateX(-1500vw); }
+    #slide15:checked ~ .slides { transform: translateX(-1600vw); }
+    #slide16:checked ~ .slides { transform: translateX(-1700vw); }
+    #slide17:checked ~ .slides { transform: translateX(-1800vw); }
+
+    /* Miniaturas / controles */
     .thumbnails {
       position: absolute;
-      bottom: 10px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 6px;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 0 10px;
     }
+
     .thumbnails label {
       cursor: pointer;
-      width: 40px;
-      height: 30px;
+      flex: 0 0 auto;
+      width: 60px;
+      height: 40px;
       overflow: hidden;
       border: 2px solid transparent;
-      border-radius: 4px;
       transition: border-color 0.3s;
     }
+
     .thumbnails label img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     /* Resaltar miniatura activa */
-    #slide1:checked ~ .thumbnails label[for="slide1"],
-    #slide2:checked ~ .thumbnails label[for="slide2"],
-    #slide3:checked ~ .thumbnails label[for="slide3"],
-    #slide4:checked ~ .thumbnails label[for="slide4"],
-    #slide5:checked ~ .thumbnails label[for="slide5"],
-    #slide6:checked ~ .thumbnails label[for="slide6"],
-    #slide7:checked ~ .thumbnails label[for="slide7"],
-    #slide8:checked ~ .thumbnails label[for="slide8"],
-    #slide11:checked ~ .thumbnails label[for="slide11"],
-    #slide12:checked ~ .thumbnails label[for="slide12"],
-    #slide13:checked ~ .thumbnails label[for="slide13"],
-    #slide14:checked ~ .thumbnails label[for="slide14"],
-    #slide15:checked ~ .thumbnails label[for="slide15"],
-    #slide16:checked ~ .thumbnails label[for="slide16"],
-    #slide17:checked ~ .thumbnails label[for="slide17"],
-    #slide18:checked ~ .thumbnails label[for="slide18"],
-    #slide19:checked ~ .thumbnails label[for="slide19"] {
-      border-color: #fff;
-    }
+    #slide1:checked ~ .thumbnails label[for="slide1"] { border-color: #fff; }
+    #slide2:checked ~ .thumbnails label[for="slide2"] { border-color: #fff; }
+    #slide3:checked ~ .thumbnails label[for="slide3"] { border-color: #fff; }
+    #slide4:checked ~ .thumbnails label[for="slide4"] { border-color: #fff; }
+    #slide5:checked ~ .thumbnails label[for="slide5"] { border-color: #fff; }
+    #slide6:checked ~ .thumbnails label[for="slide6"] { border-color: #fff; }
+    #slide7:checked ~ .thumbnails label[for="slide7"] { border-color: #fff; }
+    #slide8:checked ~ .thumbnails label[for="slide8"] { border-color: #fff; }
+    #slide9:checked ~ .thumbnails label[for="slide9"] { border-color: #fff; }
+    #slide10:checked ~ .thumbnails label[for="slide10"] { border-color: #fff; }
+    #slide11:checked ~ .thumbnails label[for="slide11"] { border-color: #fff; }
+    #slide12:checked ~ .thumbnails label[for="slide12"] { border-color: #fff; }
+    #slide13:checked ~ .thumbnails label[for="slide13"] { border-color: #fff; }
+    #slide14:checked ~ .thumbnails label[for="slide14"] { border-color: #fff; }
+    #slide15:checked ~ .thumbnails label[for="slide15"] { border-color: #fff; }
+    #slide16:checked ~ .thumbnails label[for="slide16"] { border-color: #fff; }
+    #slide17:checked ~ .thumbnails label[for="slide17"] { border-color: #fff; }
   </style>
 </head>
 <body>
 
-  <div class="carousel">
-    <!-- Radios -->
-    <input type="radio" name="slider" id="slide1" checked>
-    <input type="radio" name="slider" id="slide2">
-    <input type="radio" name="slider" id="slide3">
-    <input type="radio" name="slider" id="slide4">
-    <input type="radio" name="slider" id="slide5">
-    <input type="radio" name="slider" id="slide6">
-    <input type="radio" name="slider" id="slide7">
-    <input type="radio" name="slider" id="slide8">
-    <input type="radio" name="slider" id="slide11">
-    <input type="radio" name="slider" id="slide12">
-    <input type="radio" name="slider" id="slide13">
-    <input type="radio" name="slider" id="slide14">
-    <input type="radio" name="slider" id="slide15">
-    <input type="radio" name="slider" id="slide16">
-    <input type="radio" name="slider" id="slide17">
-    <input type="radio" name="slider" id="slide18">
-    <input type="radio" name="slider" id="slide19">
-
-    <!-- Slides -->
-    <div class="slides">
-      <div class="slide"><img src="img_lmp/1.png"></div>
-      <div class="slide"><img src="img_lmp/2.png"></div>
-      <div class="slide"><img src="img_lmp/3.png"></div>
-      <div class="slide"><img src="img_lmp/4.png"></div>
-      <div class="slide"><img src="img_lmp/5.png"></div>
-      <div class="slide"><img src="img_lmp/6.png"></div>
-      <div class="slide"><img src="img_lmp/7.png"></div>
-      <div class="slide"><img src="img_lmp/8.png"></div>
-      <div class="slide"><img src="img_lmp/11.png"></div>
-      <div class="slide"><img src="img_lmp/12.png"></div>
-      <div class="slide"><img src="img_lmp/13.png"></div>
-      <div class="slide"><img src="img_lmp/14.png"></div>
-      <div class="slide"><img src="img_lmp/15.png"></div>
-      <div class="slide"><img src="img_lmp/16.png"></div>
-      <div class="slide"><img src="img_lmp/17.png"></div>
-      <div class="slide"><img src="img_lmp/18.png"></div>
-      <div class="slide"><img src="img_lmp/19.png"></div>
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller De Las Lamparas</title>
+    <style>
+      /* Reset y box-sizing */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: sans-serif;
+        background-color: #111;
+        color: #fff;
+        overflow: hidden;
+      }
+      .carousel {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+      .carousel input { display: none; }
+  
+      .slides {
+        display: flex;
+        width: calc(100vw * 17); /* total de slides */
+        height: 100%;
+        transition: transform 0.6s ease;
+      }
+      .slide {
+        flex: 0 0 100vw;
+        height: 100%;
+        display: flex;
+        justify-content: center; /* centra la imagen horizontalmente */
+        align-items: center;     /* centra la imagen verticalmente */
+        overflow: hidden;
+      }
+      .slide img {
+        max-width: 80%;    /* ajusta este valor al “zoom” deseado */
+        max-height: 80%;   /* idem */
+        object-fit: contain;
+      }
+  
+      /* posicionar slides según el radio marcado */
+      #slide1:checked  ~ .slides { transform: translateX(0); }
+      #slide2:checked  ~ .slides { transform: translateX(-100vw); }
+      #slide3:checked  ~ .slides { transform: translateX(-200vw); }
+      #slide4:checked  ~ .slides { transform: translateX(-300vw); }
+      #slide5:checked  ~ .slides { transform: translateX(-400vw); }
+      #slide6:checked  ~ .slides { transform: translateX(-500vw); }
+      #slide7:checked  ~ .slides { transform: translateX(-600vw); }
+      #slide8:checked  ~ .slides { transform: translateX(-700vw); }
+      #slide9:checked  ~ .slides { transform: translateX(-800vw); }
+      #slide10:checked ~ .slides { transform: translateX(-900vw); }
+      #slide11:checked ~ .slides { transform: translateX(-1000vw); }
+      #slide12:checked ~ .slides { transform: translateX(-1100vw); }
+      #slide13:checked ~ .slides { transform: translateX(-1200vw); }
+      #slide14:checked ~ .slides { transform: translateX(-1300vw); }
+      #slide15:checked ~ .slides { transform: translateX(-1400vw); }
+      #slide16:checked ~ .slides { transform: translateX(-1500vw); }
+      #slide17:checked ~ .slides { transform: translateX(-1600vw); }
+  
+      /* Botones de navegación */
+      .nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.5);
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.3s;
+      }
+      .nav:hover { background: rgba(255,255,255,0.2); }
+      .nav:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+      .prev { left: 1rem; }
+      .next { right: 1rem; }
+  
+      /* Miniaturas */
+      .thumbnails {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 0 10px;
+        z-index: 5;
+      }
+      .thumbnails label {
+        cursor: pointer;
+        width: 60px;
+        height: 40px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        transition: border-color 0.3s;
+      }
+      .thumbnails label img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* Resaltar miniatura activa */
+      #slide1:checked  ~ .thumbnails label[for="slide1"],
+      #slide2:checked  ~ .thumbnails label[for="slide2"],
+      /* … hasta slide17 … */
+      #slide17:checked ~ .thumbnails label[for="slide17"] {
+        border-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <div class="carousel">
+      <!-- Radios de control -->
+      <input type="radio" name="slider" id="slide1"  checked>
+      <input type="radio" name="slider" id="slide2">
+      <input type="radio" name="slider" id="slide3">
+      <input type="radio" name="slider" id="slide4">
+      <input type="radio" name="slider" id="slide5">
+      <input type="radio" name="slider" id="slide6">
+      <input type="radio" name="slider" id="slide7">
+      <input type="radio" name="slider" id="slide8">
+      <input type="radio" name="slider" id="slide9">
+      <input type="radio" name="slider" id="slide10">
+      <input type="radio" name="slider" id="slide11">
+      <input type="radio" name="slider" id="slide12">
+      <input type="radio" name="slider" id="slide13">
+      <input type="radio" name="slider" id="slide14">
+      <input type="radio" name="slider" id="slide15">
+      <input type="radio" name="slider" id="slide16">
+      <input type="radio" name="slider" id="slide17">
+  
+      <!-- Botones Prev/Next -->
+      <button class="nav prev" aria-label="Anterior">‹</button>
+      <button class="nav next" aria-label="Siguiente">›</button>
+  
+      <!-- Contenedor de Slides -->
+      <div class="slides">
+        <div class="slide"><img src="img_lmp/1.png"  alt="Imagen 1"></div>
+        <div class="slide"><img src="img_lmp/2.png"  alt="Imagen 2"></div>
+        <div class="slide"><img src="img_lmp/3.png"  alt="Imagen 3"></div>
+        <div class="slide"><img src="img_lmp/4.png"  alt="Imagen 4"></div>
+        <div class="slide"><img src="img_lmp/5.png"  alt="Imagen 5"></div>
+        <div class="slide"><img src="img_lmp/6.png"  alt="Imagen 6"></div>
+        <div class="slide"><img src="img_lmp/7.png"  alt="Imagen 7"></div>
+        <div class="slide"><img src="img_lmp/8.png"  alt="Imagen 8"></div>
+        <div class="slide"><img src="img_lmp/9.png"  alt="Imagen 9"></div>
+        <div class="slide"><img src="img_lmp/10.png" alt="Imagen 10"></div>
+        <div class="slide"><img src="img_lmp/11.png" alt="Imagen 11"></div>
+        <div class="slide"><img src="img_lmp/12.png" alt="Imagen 12"></div>
+        <div class="slide"><img src="img_lmp/13.png" alt="Imagen 13"></div>
+        <div class="slide"><img src="img_lmp/14.png" alt="Imagen 14"></div>
+        <div class="slide"><img src="img_lmp/15.png" alt="Imagen 15"></div>
+        <div class="slide"><img src="img_lmp/16.png" alt="Imagen 16"></div>
+        <div class="slide"><img src="img_lmp/17.png" alt="Imagen 17"></div>
+      </div>
+  
+      <!-- Miniaturas -->
+      <div class="thumbnails">
+        <label for="slide1"><img src="img_lmp/1.png"  alt=""></label>
+        <label for="slide2"><img src="img_lmp/2.png"  alt=""></label>
+        <label for="slide3"><img src="img_lmp/3.png"  alt=""></label>
+        <label for="slide4"><img src="img_lmp/4.png"  alt=""></label>
+        <label for="slide5"><img src="img_lmp/5.png"  alt=""></label>
+        <label for="slide6"><img src="img_lmp/6.png"  alt=""></label>
+        <label for="slide7"><img src="img_lmp/7.png"  alt=""></label>
+        <label for="slide8"><img src="img_lmp/8.png"  alt=""></label>
+        <label for="slide9"><img src="img_lmp/9.png"  alt=""></label>
+        <label for="slide10"><img src="img_lmp/10.png" alt=""></label>
+        <label for="slide11"><img src="img_lmp/11.png" alt=""></label>
+        <label for="slide12"><img src="img_lmp/12.png" alt=""></label>
+        <label for="slide13"><img src="img_lmp/13.png" alt=""></label>
+        <label for="slide14"><img src="img_lmp/14.png" alt=""></label>
+        <label for="slide15"><img src="img_lmp/15.png" alt=""></label>
+        <label for="slide16"><img src="img_lmp/16.png" alt=""></label>
+        <label for="slide17"><img src="img_lmp/17.png" alt=""></label>
+      </div>
     </div>
-
-    <!-- Miniaturas -->
-    <div class="thumbnails">
-      <label for="slide1"><img src="img_lmp/1.png"></label>
-      <label for="slide2"><img src="img_lmp/2.png"></label>
-      <label for="slide3"><img src="img_lmp/3.png"></label>
-      <label for="slide4"><img src="img_lmp/4.png"></label>
-      <label for="slide5"><img src="img_lmp/5.png"></label>
-      <label for="slide6"><img src="img_lmp/6.png"></label>
-      <label for="slide7"><img src="img_lmp/7.png"></label>
-      <label for="slide8"><img src="img_lmp/8.png"></label>
-      <label for="slide11"><img src="img_lmp/11.png"></label>
-      <label for="slide12"><img src="img_lmp/12.png"></label>
-      <label for="slide13"><img src="img_lmp/13.png"></label>
-      <label for="slide14"><img src="img_lmp/14.png"></label>
-      <label for="slide15"><img src="img_lmp/15.png"></label>
-      <label for="slide16"><img src="img_lmp/16.png"></label>
-      <label for="slide17"><img src="img_lmp/17.png"></label>
-      <label for="slide18"><img src="img_lmp/18.png"></label>
-      <label for="slide19"><img src="img_lmp/19.png"></label>
-    </div>
-  </div>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const radios = Array.from(document.querySelectorAll('.carousel input[name="slider"]'));
+        const btnPrev = document.querySelector('.nav.prev');
+        const btnNext = document.querySelector('.nav.next');
+  
+        function updateButtons() {
+          const idx = radios.findIndex(r => r.checked);
+          btnPrev.disabled = idx === 0;
+          btnNext.disabled = idx === radios.length - 1;
+        }
+  
+        btnPrev.addEventListener('click', () => {
+          const idx = radios.findIndex(r => r.checked);
+          if (idx > 0) radios[idx - 1].checked = true;
+          updateButtons();
+        });
+  
+        btnNext.addEventListener('click', () => {
+          const idx = radios.findIndex(r => r.checked);
+          if (idx < radios.length - 1) radios[idx + 1].checked = true;
+          updateButtons();
+        });
+  
+        updateButtons();
+      });
+    </script>
+  
+  </body>
+  </html>
+  
 
 </body>
 </html>
