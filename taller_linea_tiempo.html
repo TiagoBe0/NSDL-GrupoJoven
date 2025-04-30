@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Línea del Tiempo de Jesús</title>
+  <style>
+    /* RESET BÁSICO */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* CONTENEDOR */
+    .timeline {
+      position: relative;
+      margin: 2rem auto;
+      padding-left: 2rem;
+      max-width: 600px;
+    }
+
+    /* LÍNEA VERTICAL */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10px;
+      width: 2px;
+      height: 100%;
+      background: #ccc;
+    }
+
+    /* CADA ITEM */
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 2rem;
+    }
+
+    /* MARCADOR (círculo) */
+    .timeline-marker {
+      position: absolute;
+      left: -1px;
+      top: 0.3rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      background: #3498db;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    /* CONTENIDO */
+    .timeline-content {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: auto;
+    }
+
+    .timeline-content img {
+      max-width: 120px;
+      height: auto;
+      float: left;
+      margin: 0 1rem 0.5rem 0;
+      border-radius: 4px;
+    }
+
+    .timeline-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline">
+    <!-- Doc. 122: Nacimiento e Infancia -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="img_linea/belen.png" alt="Nacimiento e Infancia de Jesús" />
+        <h3>Nacimiento e Infancia (Doc. 122)</h3>
+        <p>Jesús nace en Belén y crece en Nazaret, mostrando desde niño comprensión espiritual excepcional.</p>
+      </div>
+    </div>
+    <!-- Doc. 125: En Jerusalén -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="img_linea/jerusalem.png" alt="Jesús en el Templo" />
+        <h3>Pascua en Jerusalén (Doc. 125)</h3>
+        <p>A los doce años, asombra a los maestros del templo con sus conocimientos de las Escrituras.</p>
+      </div>
+    </div>
+    <!-- Doc. 135: Juan el Bautista -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="img_linea/juan.png" alt="Juan el Bautista" />
+        <h3>Ministerio de Juan (Doc. 135)</h3>
+        <p>Juan prepara el camino, predicando arrepentimiento y anunciando al Mesías.</p>
+      </div>
+    </div>
+    <!-- Doc. 136: Bautismo y Tentación -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="imagen136.jpg" alt="Bautismo de Jesús" />
+        <h3>Bautismo y Comunión Solitaria (Doc. 136)</h3>
+        <p>Jesús es bautizado y pasa cuarenta días en comunión con su Ajustador Personalizado.</p>
+      </div>
+    </div>
+    <!-- Doc. 139: Los Doce Apóstoles -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="imagen139.jpg" alt="Elección de los Apóstoles" />
+        <h3>Elección de los Apóstoles (Doc. 139)</h3>
+        <p>Selección de los doce discípulos, quienes aprenden y colaboran en su misión.</p>
+      </div>
+    </div>
+    <!-- Doc. 141: Inicio de la Obra Pública -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="imagen141.jpg" alt="Inicio de la obra pública" />
+        <h3>Obra Pública Comienza (Doc. 141)</h3>
+        <p>El 19 de enero del 27 d.C., inicia su predicación por Perea y Judá.</p>
+      </div>
+    </div>
+    <!-- Doc. 146: Primera Gira en Galilea -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="imagen146.jpg" alt="Predicación en Galilea" />
+        <h3>Primera Gira en Galilea (Doc. 146)</h3>
+        <p>Enero–Marzo del 28 d.C., predica en ciudades como Corazín y Caná.</p>
+      </div>
+    </div>
+    <!-- Doc. 150: Tercera Gira y Mujeres Evangelistas -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="imagen150.jpg" alt="Mujeres evangelistas" />
+        <h3>Tercera Gira y Equipo Femenino (Doc. 150)</h3>
+        <p>Comienza en enero del 29 d.C. y envía a mujeres evangelistas junto a los apóstoles.</p>
+      </div>
+    </div>
+    <!-- Doc. 158: Transfiguración -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="imagen158.jpg" alt="Transfiguración en el Monte Hermón" />
+        <h3>Transfiguración (Doc. 158)</h3>
+        <p>El 15 de agosto del 29 d.C., se transfigura en el Monte Hermón ante Pedro, Santiago y Juan.</p>
+      </div>
+    </div>
+    <!-- Doc. 172: Entrada a Jerusalén -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="imagen172.jpg" alt="Entrada triunfal a Jerusalén" />
+        <h3>Entrada Triunfal (Doc. 172)</h3>
+        <p>31 de marzo del 30 d.C., entra en Jerusalén montado en un asno, simbolizando paz.</p>
+      </div>
+    </div>
+    <!-- Doc. 182: Oración en Getsemaní -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <img src="imagen182.jpg" alt="Oración en Getsemaní" />
+        <h3>Getsemaní (Doc. 182)</h3>
+        <p>La noche antes de su pasión, ora por sus apóstoles y enfrenta la traición.</p>
+      </div>
+    </div>
+    <!-- Doc. 187: Crucifixión -->
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
