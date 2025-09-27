@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinámica Grupo de Jóvenes</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #4a5568;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        
+        .header p {
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .section {
+            background: white;
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #4a5568;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .bible-verse {
+            background: #f7fafc;
+            padding: 20px;
+            border-left: 4px solid #4299e1;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-style: italic;
+        }
+        
+        .verse-reference {
+            font-weight: bold;
+            color: #4299e1;
+            margin-bottom: 10px;
+        }
+        
+        .sorteo-container {
+            text-align: center;
+        }
+        
+        .names-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        
+        .name-tag {
+            background: #e2e8f0;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .remove-btn {
+            background: #fc8181;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .sorteo-btn {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 10px;
+        }
+        
+        .sorteo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+        }
+        
+        .resultado {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #4299e1;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 10px;
+            border: 2px solid #4299e1;
+        }
+        
+        .add-name {
+            margin: 20px 0;
+        }
+        
+        .add-name input {
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            margin-right: 10px;
+            font-size: 1em;
+        }
+        
+        .add-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .symbols {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .symbol-item {
+            background: #f7fafc;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            min-width: 200px;
+        }
+        
+        .symbol {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤝 Dinámica de Feedback Fraternal</h1>
+        <p>"Amémonos unos a otros como Cristo nos amó"</p>
+    </div>
+
+    <div class="section">
+        <h2>📖 Lecturas para la Reflexión</h2>
+        
+        <div class="bible-verse">
+            <div class="verse-reference">Juan 15:12-17</div>
+            <p>"Este es mi mandamiento: que se amen unos a otros como yo los he amado. Nadie tiene amor más grande que el que da la vida por sus amigos. Ustedes son mis amigos si hacen lo que yo les mando... Esto les mando: que se amen unos a otros."</p>
+        </div>
+
+        <div class="bible-verse">
+            <div class="verse-reference">1 Juan 4:7-12</div>
+            <p>"Queridos, amémonos unos a otros, porque el amor viene de Dios, y todo el que ama ha nacido de él y lo conoce... Si nos amamos unos a otros, Dios permanece en nosotros y su amor se ha perfeccionado en nosotros."</p>
+        </div>
+
+        <div class="bible-verse">
+            <div class="verse-reference">Colosenses 3:12-14</div>
+            <p>"Por tanto, como escogidos de Dios, santos y amados, revístanse de afecto entrañable y de bondad, humildad, amabilidad y paciencia. Sopórtense unos a otros y perdónense si alguno tiene queja contra otro... Sobre todo, revístanse de amor, que es el vínculo perfecto."</p>
+        </div>
+
+        <div class="bible-verse">
+            <div class="verse-reference">Efesios 4:2-3</div>
+            <p>"Sean siempre humildes y amables; sean pacientes, tolerándose unos a otros con amor. Manténganse unidos en el Espíritu y en paz."</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✍️ Instrucciones para las Tarjetas</h2>
+        <div class="symbols">
+            <div class="symbol-item">
+                <span class="symbol">🙏</span>
+                <strong>Oración</strong><br>
+                "Te acompaño orando por..."
+            </div>
+            <div class="symbol-item">
+                <span class="symbol">⭐</span>
+                <strong>Fortaleza</strong><br>
+                "Admiro en vos..."
+            </div>
+            <div class="symbol-item">
+                <span class="symbol">🌱</span>
+                <strong>Crecimiento</strong><br>
+                "Te animo a seguir creciendo en..."
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎲 Sorteo de Catecúmenos</h2>
+        <div class="sorteo-container">
+            <div class="add-name">
+                <input type="text" id="newName" placeholder="Agregar nuevo nombre..." maxlength="30">
+                <button class="add-btn" onclick="addName()">Agregar</button>
+            </div>
+            
+            <div class="names-list" id="namesList"></div>
+            
+            <button class="sorteo-btn" onclick="sortear()">🎯 Sortear Catecúmeno</button>
+            
+            <div id="resultado" class="resultado" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        let names = [
+            "Angie", "Agustina", "Daniel (Carlitoz)", "Seba Amaya", "Sheila", 
+            "Sofii", "Viquiii", "Joel Zafarana", "Camila", "Delfi", 
+            "Marquitos", "Valentina", "Julian"
+        ];
+
+        function renderNames() {
+            const namesList = document.getElementById('namesList');
+            namesList.innerHTML = '';
+            
+            names.forEach((name, index) => {
+                const nameTag = document.createElement('div');
+                nameTag.className = 'name-tag';
+                nameTag.innerHTML = `
+                    ${name}
+                    <button class="remove-btn" onclick="removeName(${index})" title="Quitar">×</button>
+                `;
+                namesList.appendChild(nameTag);
+            });
+        }
+
+        function addName() {
+            const newNameInput = document.getElementById('newName');
+            const newName = newNameInput.value.trim();
+            
+            if (newName && !names.includes(newName)) {
+                names.push(newName);
+                newNameInput.value = '';
+                renderNames();
+            } else if (names.includes(newName)) {
+                alert('Este nombre ya está en la lista');
+            }
+        }
+
+        function removeName(index) {
+            names.splice(index, 1);
+            renderNames();
+        }
+
+        function sortear() {
+            if (names.length === 0) {
+                alert('No hay nombres para sortear');
+                return;
+            }
+            
+            const resultado = document.getElementById('resultado');
+            const randomIndex = Math.floor(Math.random() * names.length);
+            const selectedName = names[randomIndex];
+            
+            resultado.innerHTML = `✨ Catecúmeno sorteado: <br><strong>${selectedName}</strong>`;
+            resultado.style.display = 'block';
+            
+            // Efecto de animación
+            resultado.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                resultado.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        // Permitir agregar nombres con Enter
+        document.getElementById('newName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addName();
+            }
+        });
+
+        // Inicializar la lista
+        renderNames();
+    </script>
+</body>
+</html>
